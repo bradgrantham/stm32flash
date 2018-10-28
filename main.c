@@ -307,9 +307,9 @@ int main(int argc, char* argv[]) {
 			end = start + readwrite_len;
 
 		first_page = flash_addr_to_page_floor(start);
-		if (!first_page && end == stm->dev->fl_end)
-			num_pages = STM32_MASS_ERASE;
-		else
+		// if (!first_page && end == stm->dev->fl_end)
+			// num_pages = STM32_MASS_ERASE;
+		// else
 			num_pages = flash_addr_to_page_ceil(end) - first_page;
 	} else if (!spage && !npages) {
 		start = stm->dev->fl_start;
@@ -334,8 +334,8 @@ int main(int argc, char* argv[]) {
 			num_pages = flash_addr_to_page_ceil(end) - first_page;
 		}
 
-		if (!first_page && end == stm->dev->fl_end)
-			num_pages = STM32_MASS_ERASE;
+		// if (!first_page && end == stm->dev->fl_end)
+			// num_pages = STM32_MASS_ERASE;
 	}
 
 	if (action == ACT_READ) {
